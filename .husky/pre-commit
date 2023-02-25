@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run test
+echo 'running pre-commiting checks...'
+FORCE_COLOR=1 npm run precommit

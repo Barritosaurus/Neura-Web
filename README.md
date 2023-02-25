@@ -16,7 +16,7 @@ Be sure to open a pull request for all changes and check out our [style guide].
 
 ## Building
 
-To build the project, first run `npm install` to update all packages.
+To build the project, first run `npm install` in both the root directory AND the /app directory to update and collect all packages.
 
 ## License
 

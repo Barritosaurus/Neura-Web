@@ -1,4 +1,5 @@
-import ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Landing from "./pages/Landing";
@@ -7,8 +8,9 @@ import Applications from "./pages/Applications";
 import Opportunities from "./pages/Opportunities";
 import NoPage from "./pages/NoPage";
 
-export default function App() {
-    return (
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+    <React.StrictMode>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />}>
@@ -20,7 +22,5 @@ export default function App() {
                 </Route>
             </Routes>
         </BrowserRouter>
-    );
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
+    </React.StrictMode>,
+);

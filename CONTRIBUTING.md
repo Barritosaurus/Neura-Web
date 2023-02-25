@@ -101,7 +101,7 @@ git config --global core.autocrlf false
 git config --global core.eol lf
 ```
 
-### Node Package Manager
+### npm
 
 [npm] is our package manager. It lets us define command line tools and
 their versions per project to keep everyone using compatible tooling.
@@ -117,6 +117,7 @@ file and run the following command:
 npm install
 ```
 
+[npm]: https://www.npmjs.com/
 [nodejs releases]: https://nodejs.org/en/
 
 ### ESLint
@@ -139,7 +140,7 @@ which reduces time spent reorganizing code and bikeshedding.
 
 #### Installation
 
-Prettier should be installed using [npm](#Node Package Manager). (Do not npm install direct 
+Prettier should be installed using [npm](#npm). (Do not npm install direct 
 packages, they are already included in the package.json dependencies!)
 
 ### Husky
@@ -149,7 +150,7 @@ such as commiting and pushing.
 
 #### Installation
 
-Husky should be installed using [npm](#Node Package Manager). (Do not npm install direct 
+Husky should be installed using [npm](#npm). (Do not npm install direct 
 packages, they are already included in the package.json dependencies!)
 
 [husky]: https://github.com/typicode/husky

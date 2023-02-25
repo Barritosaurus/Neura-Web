@@ -11,5 +11,8 @@
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2"
+  },
+  "dependencies": {
+    "prettier": "^2.8.4"
   }
 }

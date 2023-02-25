@@ -1,7 +1,7 @@
 {
   "scripts": {
     "prepare": "husky install",
-    "precommit": "npx lint-staged -q && eslint ./app --max-warnings=0",
+    "precommit": "npx lint-staged -q --concurrent false && eslint ./app --max-warnings=0",
     "prepush": "cd ./app && npm run test -- --watchAll=false"
   },
   "devDependencies": {

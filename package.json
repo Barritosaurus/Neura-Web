@@ -1,11 +1,12 @@
 {
-  "devDependencies": {
-    "husky": "^4.3.8"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "1242523525",
-    "eject": "react-scripts eject"
+    "prepare": "husky install",
+    "test": "eslint . --max-warnings=0 && cd ./app && npm run test -- --watchAll=false"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "eslint": "^8.34.0"
   }
 }

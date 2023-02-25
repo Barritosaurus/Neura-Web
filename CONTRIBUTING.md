@@ -75,6 +75,8 @@ over time as well as share our changes with each other through GitHub. It is
 highly recommended to use the CLI version of git as the desktop version has proven 
 to be problematic with hooks.
 
+[git]: https://git-scm.com/
+
 #### Installation
 
 Installation is relatively easy, but there are quite a few configuration steps.
@@ -127,6 +129,9 @@ common issues and errors so they get caught quickly and easily.
 ESLint should be installed using [npm](#Node Package Manager). (Do not npm install direct 
 packages, they are already included in the package.json dependencies!)
 
+[eslint]: https://eslint.org/
+
+
 ### Prettier
 
 [Prettier] is our code formatter. It can automatically format and style our code,
@@ -146,6 +151,8 @@ such as commiting and pushing.
 
 Husky should be installed using [npm](#Node Package Manager). (Do not npm install direct 
 packages, they are already included in the package.json dependencies!)
+
+[husky]: https://github.com/typicode/husky
 
 ### Recommended Extensions
 

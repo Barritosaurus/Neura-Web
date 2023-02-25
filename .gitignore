@@ -1,0 +1,15 @@
+# Workspace artifacts
+.vscode/**/*
+!.vscode/settings.json
+!.vscode/*.code-snippets
+!.vscode/tasks.json
+
+# This should be permitted so everyone has the same dependency chain
+!package-lock.json
+
+# Typescript
+dist
+tsconfig.tsbuildinfo
+node_modules
+*.env
+.eslintcache

@@ -127,7 +127,7 @@ common issues and errors so they get caught quickly and easily.
 
 #### Installation
 
-ESLint should be installed using [npm](#Node Package Manager). (Do not npm install direct 
+ESLint should be installed using [npm](#npm). (Do not npm install direct 
 packages, they are already included in the package.json dependencies!)
 
 [eslint]: https://eslint.org/

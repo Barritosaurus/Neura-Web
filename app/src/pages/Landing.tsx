@@ -1,5 +1,4 @@
 import React from "react";
-import HoverButton from "../components/HoverButton";
 
 function Landing() {
     return (

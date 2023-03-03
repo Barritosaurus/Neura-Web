@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import Applications from "./pages/Applications";
 import Opportunities from "./pages/Opportunities";
 import NoPage from "./pages/NoPage";
+import DropDown from "./components/DropDown";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -22,5 +23,12 @@ root.render(
                 </Route>
             </Routes>
         </BrowserRouter>
+        <DropDown options={[
+            'Landing',
+            'Applications',
+            'Opportunities',
+            'AboutUs'
+        ]}/>
     </React.StrictMode>,
+
 );

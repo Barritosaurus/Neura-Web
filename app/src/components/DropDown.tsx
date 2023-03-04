@@ -1,23 +1,53 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const DropDown = ({ options }: { options: string[] }) => {
+/*
+Dropdown menu that gets the options passed as props
 
+
+EXAMPLE USAGE:
+ <DropDown color="rgb(120,196, 234)" hoverColor="rgb(124, 172, 203)"
+	options={[
+		"Landing",
+		"Applications",
+		"Opportunities",
+		"AboutUs"]}
+	/>
+
+*/
+
+interface Props {
+	color?: string,
+	hoverColor?: string,
+	options: string[]
+}
+
+const DropDown: React.FC<Props> = ({ color, hoverColor, options}) => {
 
 	const [isExpanded, setIsExpanded] = useState(false);
 
+	const style = { 
+		backgroundColor: isExpanded && hoverColor ? hoverColor : color || 'transparent',
+		border: 'none',
+	};
+
+	const handleClick = () => {
+		console.log('dropdown open');
+	};
+
 	return (
-		<div>
-			<button 
-			onClick={() => setIsExpanded(!isExpanded)}
-			className="hover:bg-black-800">
-			Dropdown
-			</button>
-			{isExpanded && 
+		<div className="DropDown">
+			<button
+				onClick={() => setIsExpanded(!isExpanded)}>
+				Dropdown
+ 			</button>
+			 {isExpanded && 
 				<div>
-					{options.map(option => (
-						<li key={option}>
-							{option}
-						</li>
+					{options.map(options => (
+						<ol style={{ listStyle: 'none' }}>
+							<li key={options}>
+								{options}
+							</li>
+						</ol>
 					))}
 				</div>
 			}

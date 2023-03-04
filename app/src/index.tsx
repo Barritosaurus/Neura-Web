@@ -23,12 +23,6 @@ root.render(
                 </Route>
             </Routes>
         </BrowserRouter>
-        <DropDown options={[
-            'Landing',
-            'Applications',
-            'Opportunities',
-            'AboutUs'
-        ]}/>
     </React.StrictMode>,
 
 );

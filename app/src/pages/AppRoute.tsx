@@ -1,14 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../Navbar";
+import App from "../App";
 
-const Layout = () => {
+const AppRoute = () => {
     return (
         <>
-            <Navbar />
+            <App />
             <Outlet />
         </>
     );
 };
 
-export default Layout;
+export default AppRoute;

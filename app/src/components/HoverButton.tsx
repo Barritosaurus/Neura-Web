@@ -15,27 +15,27 @@ EXAMPLE USAGE:
 
 interface Props {
     onClick?: () => void;
-    text?: string,
-    color?: string,
-    hoverColor?: string
+    text?: string;
+    color?: string;
+    hoverColor?: string;
 }
 
-const HoverButton: React.FC<Props> = ({onClick, text, color, hoverColor}) => {
+const HoverButton: React.FC<Props> = ({ onClick, text, color, hoverColor }) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const style = { 
-        backgroundColor: isHovered && hoverColor ? hoverColor : color || 'transparent',
-        border: 'none',
+    const style = {
+        backgroundColor: isHovered && hoverColor ? hoverColor : color || "transparent",
+        border: "none",
     };
 
     const handleClick = () => {
-        console.log('button click!');
+        console.log("button click!");
     };
 
     return (
         <div className="HoverButton">
-            <button 
-                onClick={ onClick ? onClick : handleClick}
+            <button
+                onClick={onClick ? onClick : handleClick}
                 style={style}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -44,6 +44,6 @@ const HoverButton: React.FC<Props> = ({onClick, text, color, hoverColor}) => {
             </button>
         </div>
     );
-}
+};
 
 export default HoverButton;

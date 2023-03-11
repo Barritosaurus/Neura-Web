@@ -6,7 +6,7 @@ function Landing() {
         <div className="background">
             <div className="header-background-container">
                 <div className="header-wrapper">
-                    <h1 className="center-container-header">
+                    <header className="center-container-header">
                         <li className="link-text">
                             <Link to="/">home</Link>
                         </li>
@@ -20,7 +20,7 @@ function Landing() {
                         <li className="link-text">
                             <Link to="/aboutus">about us</Link>
                         </li>
-                    </h1>
+                    </header>
                 </div>
             </div>
             <div className="grid-container">

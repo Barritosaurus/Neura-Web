@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { FC, useState, ChangeEvent } from "react";
 
-type Props = {
-	text?: string;
+interface InputProps {
+	label: string,
+	placeholder?: string,
+}
 
-};
-
-const InputField = ({text}: Props) => {
-	return (
-		<div>InputField</div>
-	)
+const InputField: FC<InputProps> = ({label, placeholder}) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <input value={placeholder}/>
+    </div>
+  );
 };
 
 export default InputField;

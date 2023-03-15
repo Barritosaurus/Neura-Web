@@ -1,26 +1,33 @@
 import React, { FC, useState, ChangeEvent } from "react";
+/*
+This component is an input field that takes in a prop to define
+what type of mask will be placed on the field.
 
-type Props = {
+EXAMPLE USAGE:
+    <InputField maskType={0b1011}/>
+
+In this example all characters are masked EXCEPT alphabetic characters
+*/
+
+type ComponentText = {
   text: string
 };
 
-const InputField: FC = (props) => {
+interface Props {
+  maskType: number
+}
 
-  const placeholder = "Placeholder Text";
+const InputField: FC<Props> = ({maskType}) => {
 
-  const NUMERIC_REGEX = "[0-9]";
-  const ALPHABETIC_REGEX = "[a-zA-Z]";
-  const WHITESPACE_REGEX = "[%s]";
-  const OTHER_REGEX = "[^0-9a-zA-Z%s]";
   const NUMERIC_MASK = 0b1000;
   const ALPHABETIC_MASK = 0b0100;
   const WHITESPACE_MASK = 0b0010;
   const OTHER_MASK = 0b0001;
 
-  const inputMask = props ? props : 0b1111;
+  const inputMask = maskType ? maskType : 0b1111;
 
   //setter for text that is input
-  const [values, setValues] = React.useState<Props>({
+  const [values, setValues] = React.useState<ComponentText>({
     text: ""
   });
 
@@ -36,11 +43,21 @@ const InputField: FC = (props) => {
     console.log("submit", values);
   };
 
-  //this is currently just a numeric mask
-  const numericMask = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //this function does the masking
+  const mask = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
-    value = value.replace(/\D/g, "");
-    e.target.value = value;
+    if((inputMask & NUMERIC_MASK) == 0) {
+      e.target.value = value.replace(/\D/g, "");
+    }
+    if((inputMask & ALPHABETIC_MASK) == 0) {
+      e.target.value = value.replace(/[^a-zA-Z]/g, "");
+    }
+    if((inputMask & WHITESPACE_MASK) == 0) {
+      e.target.value =  value.replace(/\S/g, "");
+    }
+    if((inputMask & OTHER_MASK) == 0) {
+      e.target.value = value.replace(/[^0-9a-zA-Z%s]/g, "");
+    }
     return e;
   }
 
@@ -49,8 +66,8 @@ const InputField: FC = (props) => {
       <form onSubmit={handleSubmit}>
         <label>{"Mask"}</label>
         <input 
-          placeholder={placeholder}
-          onChange={(e) => handleChange(numericMask(e))}
+          placeholder={"Type text here"}
+          onChange={(e) => handleChange(mask(e))}
         />
         <button type="submit">Submit</button>
       </form>

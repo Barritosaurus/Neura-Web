@@ -1,12 +1,12 @@
-import React, { FC, useState, ChangeEvent } from "react";
-/*
+import React, { FC, useState } from "react";
+/* 
 This component is an input field that takes in a prop to define
 what type of mask will be placed on the field.
 
 EXAMPLE USAGE:
     <InputField maskType={0b1011}/>
 
-In this example all characters are masked EXCEPT alphabetic characters
+In this example all characters are masked EXCEPT alphabetic characters 
 */
 
 type ComponentText = {
@@ -18,12 +18,10 @@ interface Props {
 }
 
 const InputField: FC<Props> = ({maskType}) => {
-
   const NUMERIC_MASK = 0b1000;
   const ALPHABETIC_MASK = 0b0100;
   const WHITESPACE_MASK = 0b0010;
   const OTHER_MASK = 0b0001;
-
   const inputMask = maskType ? maskType : 0b1111;
 
   //setter for text that is input

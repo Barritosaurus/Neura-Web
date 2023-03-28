@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import InputField from "../components/InputField";
 
 function Applications() {
     const [selectedFile, setSelectedFile]: [Blob, Function] = useState(new Blob());

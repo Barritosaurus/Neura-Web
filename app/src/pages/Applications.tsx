@@ -36,8 +36,33 @@ function Applications() {
                         </li>
                     </header>
                 </div>
+                
+                <div className="grid-container">
+                    <p className="link-text" style={{fontSize: '2rem'} }>
+                        Personal information
+                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                            First name
+                        </p>
+                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                            Last name
+                        </p> 
+                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                            Email
+                        </p> 
+                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                            Phone number
+                        </p> 
+                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                            Address(optional)
+                        </p> 
+                    </p>
+                </div>
             </div>
+            
             <div className="grid-container">
+                <h1 className="link-text" style={{fontSize: '1.5rem'}}>
+                    Resume*
+                </h1> 
                 <input type="file" name="file" onChange={changeHandler} />
                 <div>
                     <button onClick={handleSubmission}>Submit</button>

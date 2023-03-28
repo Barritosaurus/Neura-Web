@@ -62,12 +62,12 @@ const InputField: FC<Props> = ({maskType}) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {/* <label>{"Mask"}</label> */}
+        <label>{""}</label>
         <input 
           placeholder={"Type text here"}
           onChange={(e) => handleChange(mask(e))}
         />
-        <button type="submit">Submit</button>
+        {/* <button type="submit">Submit</button> */}
       </form>
     </div>
   );

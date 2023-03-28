@@ -38,22 +38,27 @@ function Applications() {
                 </div>
                 
                 <div className="grid-container">
-                    <p className="link-text" style={{fontSize: '2rem'} }>
+                    <p className="link-text" style={{fontSize: '2rem', textDecoration: 'underline'}}>
                         Personal information
-                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                        <p style={{fontSize: '1.7rem'}}>
                             First name
+                            <div className="input-field"><InputField maskType={0b1110}/></div>
                         </p>
-                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                        <p style={{fontSize: '1.7rem'}}>
                             Last name
+                            <div className="input-field"><InputField maskType={0b1110}/></div>
                         </p> 
-                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                        <p style={{fontSize: '1.7rem'}}>
                             Email
+                            <div className="input-field"><InputField maskType={0b1111}/></div>
                         </p> 
-                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                        <p style={{fontSize: '1.7rem'}}>
                             Phone number
+                            <div className="input-field"><InputField maskType={0b0111}/></div>
                         </p> 
-                        <p className="link-text" style={{fontSize: '1.9rem'}}>
+                        <p style={{fontSize: '1.7rem'}}>
                             Address(optional)
+                            <div className="input-field"><InputField maskType={0b1111}/></div>
                         </p> 
                     </p>
                 </div>

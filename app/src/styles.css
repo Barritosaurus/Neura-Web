@@ -82,6 +82,20 @@ h1 {
     font-size: 28px;
 }
 
+.display-text {
+    font-family:SkReykjavikRounded-Regular;
+    background: linear-gradient(to bottom, #028dfe, #00e7fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:#028dfe;
+    font-size: 28px;
+}
+
+.input-field {
+    height: 13px;
+    font-family:SkReykjavikRounded-Regular;
+    -webkit-text-fill-color: black;
+}
+
 /* Elements */
 .image-grid {
     position: absolute;

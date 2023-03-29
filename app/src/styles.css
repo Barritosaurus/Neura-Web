@@ -86,14 +86,21 @@ h1 {
     font-family:SkReykjavikRounded-Regular;
     background: linear-gradient(to bottom, #028dfe, #00e7fc);
     -webkit-background-clip: text;
-    -webkit-text-fill-color:#028dfe;
+    -webkit-text-fill-color:transparent;
     font-size: 28px;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .input-field {
     height: 13px;
     font-family:SkReykjavikRounded-Regular;
     -webkit-text-fill-color: black;
+}
+
+.list-text {
+    margin: 0 10px;
 }
 
 /* Elements */

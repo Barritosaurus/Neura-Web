@@ -36,9 +36,20 @@ function Applications() {
                         </li>
                     </header>
                 </div>
-                
                 <div className="grid-container">
-                    <p className="link-text" style={{fontSize: '2rem', textDecoration: 'underline'}}>
+                <p className="display-text" style={{fontSize: '1.5rem'}}>
+                    Here at Neura Studios, we are always looking for motivated<br></br>
+                    individuals who want learn and grow their skills! If you think <br></br>
+                    you might be a match fill out the breif application below. <br></br>
+                    <p style={{marginBottom: '0em'}}>Currently openings for:
+                        <li className="list-text">gamers</li>
+                        <li className="list-text">weebs</li>
+                        <li className="list-text"> wrestlers</li>
+                    </p>
+                </p>
+                </div>
+                <div className="grid-container">
+                    <p className="display-text" style={{fontSize: '2rem', marginTop: '0em'}}>
                         Personal information
                         <p style={{fontSize: '1.7rem'}}>
                             First name
@@ -59,20 +70,21 @@ function Applications() {
                         <p style={{fontSize: '1.7rem'}}>
                             Address(optional)
                             <div className="input-field"><InputField maskType={0b1111}/></div>
+                            <br></br>
                         </p> 
                     </p>
                 </div>
-            </div>
-            
-            <div className="grid-container">
-                <h1 className="link-text" style={{fontSize: '1.5rem'}}>
-                    Resume*
-                </h1> 
-                <input type="file" name="file" onChange={changeHandler} />
-                <div>
-                    <button onClick={handleSubmission}>Submit</button>
+                <div className="grid-container">
+                    <h1 className="link-text" style={{fontSize: '1.5rem'}}>
+                        Resume*
+                    </h1> 
+                    <input type="file" name="file" onChange={changeHandler} />
+                    <div>
+                        <button onClick={handleSubmission}>Submit</button>
+                    </div>
                 </div>
             </div>
+                <div className="grid-container"></div>
         </div>
     );
 }

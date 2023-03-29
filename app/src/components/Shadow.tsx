@@ -15,7 +15,6 @@ var values = {
     blur: 2,
     spread: 0.25,
     color: '#5A5A5A',
-    padding: 5,
     borderRadius: 5,
 }
 

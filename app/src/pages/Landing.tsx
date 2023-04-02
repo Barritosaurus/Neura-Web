@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 function Landing() {
     return (
         <div className="background">
@@ -21,8 +22,10 @@ function Landing() {
                         </li>
                     </header>
                 </div>
+                
             </div>
             <div className="grid-container">
+                
                 <div className="image-grid">
                     <div className="image">
                         <img src="" alt="" />

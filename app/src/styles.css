@@ -1,15 +1,87 @@
 @import 'animate.css';
+
+/* FONTS */
 @font-face {
     font-family: 'SkReykjavikRounded-Regular';
     src: url('fonts/SKReykjavikRounded-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
-/* Overrides */
+@font-face {
+    font-family: 'Metrophobic';
+    src: url('fonts/Metrophobic-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NTR';
+    src: url('fonts/NTR-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sunflower Light';
+    src: url('fonts/Sunflower-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sunflower Medium';
+    src: url('fonts/Sunflower-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sunflower Bold';
+    src: url('fonts/Sunflower-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique Light';
+    src: url('fonts/ZenKakuGothicAntique-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique Regular';
+    src: url(fonts/ZenKakuGothicAntique-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique Medium';
+    src: url(fonts/ZenKakuGothicAntique-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique Bold';
+    src: url(fonts/ZenKakuGothicAntique-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique Black';
+    src: url('fonts/ZenKakuGothicAntique-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* OVERRIDES */
 body {
     margin: 0;
-  }
+}
 
 li {
     margin: 0 100px;
@@ -26,12 +98,14 @@ h1 {
     height: auto;
 }
 
-/* Containers */
+/* CONTAINERS */
 .header-background-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 25vh;
-    justify-content: flex-start;
+    min-width: 10%;
+    position: absolute;
 }
 
 .center-container-header {
@@ -40,31 +114,52 @@ h1 {
     align-items: center;
     list-style: none;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: visible;
+    flex-direction: row;
 }
 
 .grid-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    position: absolute;
+    width: 100vw;
+    min-width: 10%;
   }
 
-/* Page Backgrounds */
+/* PAGE BACKGROUNDS */
 .background { 
     background-color: #323232;
     height: 100%;
-    width: 100%;
+    min-height: 100vh;
+    width: 100;
+    min-width: 100%;
+    overflow: scroll;
+    position: absolute;
 }
 
-/* Wrappers */
+.landing-bg {
+    background: #2b2b37;
+    position: absolute;
+    /*min-width: 100vw;
+    min-height: 100vh;*/
+    width: 100vw;
+    height: 100vh;
+}
+
+.landing-text {
+    font-family: 'Metrophobic';
+    color: white;
+    font-size: 72px;
+    opacity: 90%;
+}
+
+/* WRAPPERS */
 .header-wrapper { 
     background-color: #1E1E1E;
     height: 100px;
     width: 100%;
 }
 
-/* Text */
+/* TEXT */
 .header-text {
     font-family:SkReykjavikRounded-Regular;
     padding: 10px;
@@ -82,20 +177,29 @@ h1 {
     font-size: 28px;
 }
 
-/* Elements */
+/* ELEMENTS */
 .image-grid {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    min-width: 10%;
+    max-width: 100%;
+    width: 500px;
+    max-height: 100%;
+    top: 10px;
+    /*transform: translate(-50%, -50%);*/
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 40px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    margin: 400px 0px 0px 250px;
 }
 
 .image {
-    width: 300px;
-    height: 300px;
+    min-width: 10%;
+    width: 150px;
+    max-width: 200px;
+    height: 150px;
+    max-height: 200px;
     border: 2px solid #028dfe;
     border-radius: 10px;
     overflow: hidden;

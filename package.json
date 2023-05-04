@@ -1,8 +1,7 @@
 {
   "scripts": {
     "prepare": "husky install",
-    "precommit": "npx lint-staged -q --concurrent false && eslint ./app --max-warnings=0",
-    "prepush": "cd ./app && npm run test -- --watchAll=false"
+    "precommit": "npx lint-staged -q --concurrent false && eslint ./neura-web-app --max-warnings=0 --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.53.0",
@@ -12,5 +11,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "2.8.4"
+  },
+  "dependencies": {
+    "react-scrollbars-custom": "^4.1.1"
   }
 }

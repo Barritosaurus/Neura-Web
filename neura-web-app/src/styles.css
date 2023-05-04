@@ -1,0 +1,29 @@
+/* src/styles.css */
+.blended-background {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.blended-background::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: -1px;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 60%);
+  pointer-events: none;
+}
+
+.blended-background::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: inherit;
+}

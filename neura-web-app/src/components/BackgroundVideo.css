@@ -1,0 +1,36 @@
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-video.enter {
+    animation: enter 1s forwards;
+}
+
+.background-video.leave {
+    animation: leave 0.5s forwards;
+}
+
+@keyframes enter {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes leave {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}

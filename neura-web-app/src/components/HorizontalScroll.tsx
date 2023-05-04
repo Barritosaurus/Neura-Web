@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import LandingPage from "./LandingPage";
-import AboutUs from "./AboutUs";
+import LandingPage from "../pages/LandingPage";
+import AboutUs from "../pages/AboutUs";
+import { ThemeProvider } from "../ThemeContext";
 
 interface SectionProps {
     id: string;
@@ -18,7 +19,7 @@ const sections: SectionProps[] = [
 		blendColor: "bg-yellow-600",
 	},
 	{
-		id: "home",
+		id: "landing",
 		title: "Home",
 		bgColor: "bg-gradient-to-b from-blue-400 via-blue-600 to-purple-800",
 		blendColor: "bg-blue-600",
@@ -33,10 +34,12 @@ const sections: SectionProps[] = [
 ];
 
 const HorizontalScroll: React.FC = () => {
+	const [activePage, setActivePage] = useState("landing");
 	const [currentSection, setCurrentSection] = useState(Math.floor(sections.length / 2));
 	const containerRef = useRef<HTMLDivElement>(null);
+	const currentSectionRef = useRef(currentSection);
 
-	const scrollToSection = (index: number, smooth = true) => {
+	const scrollToSection = (index: number, smooth = true, resize = false) => {
 		const target = document.getElementById(sections[index].id);
 
 		if (target && containerRef.current) {
@@ -45,28 +48,57 @@ const HorizontalScroll: React.FC = () => {
 				behavior: smooth ? "smooth" : "auto",
 			});
 			setCurrentSection(index);
+			currentSectionRef.current = index;
 		}
+
+		if (!resize) {
+			setActivePage(sections[index].id);
+		}
+	};
+
+	const handleResize = () => {
+		scrollToSection(currentSectionRef.current, false, true);
 	};
 
 	useEffect(() => {
 		scrollToSection(currentSection, false);
+		window.addEventListener("resize", handleResize);
+
+		// Cleanup function
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
 	}, []);
 
 	const renderSectionContent = (section: SectionProps) => {
 		switch (section.id) {
-		case "home":
-			return <LandingPage />;
+		case "landing":
+			return (
+				<div className="h-full w-full">
+					<div className="custom-scrollbar h-full w-full overflow-y-auto">
+						<LandingPage activePage={activePage} />
+					</div>
+				</div>
+			);
 		case "about-us":
-			return <AboutUs />;
+			return (
+				<div className="h-full w-full">
+					<div className="custom-scrollbar h-full w-full overflow-y-auto">
+						<AboutUs activePage={activePage} />
+					</div>
+				</div>
+			);
 		case "careers":
 			return (
 				<div
 					key={section.id}
 					id={section.id}
-					className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} blended-background flex items-center justify-center`}
+					className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} blended-background flex items-center justify-center z-neg-1`}
 				>
-					<div>
-						<h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+					<div className="h-full w-full">
+						<div className="custom-scrollbar h-full w-full overflow-y-auto">
+							<h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+						</div>
 					</div>
 				</div>
 			);
@@ -76,14 +108,16 @@ const HorizontalScroll: React.FC = () => {
 	};
 
 	return (
-		<div className="h-full w-full relative">
-			<Navbar sections={sections} onNavigate={scrollToSection} />
-			<div ref={containerRef} className="horizontal-scroll flex overflow-x-hidden">
+		<div className="h-full w-full relative flex flex-col">
+			<ThemeProvider>
+				<Navbar sections={sections} onNavigate={scrollToSection} />
+			</ThemeProvider>
+			<div ref={containerRef} className="horizontal-scroll flex overflow-x-hidden flex-grow">
 				{sections.map((section, index) => (
 					<div
 						key={section.id}
 						id={section.id}
-						className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} blended-background flex items-center justify-center`}
+						className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} blended-background flex items-center justify-center z-neg-1`}
 					>
 						{renderSectionContent(section)}
 						{index < sections.length - 1 && (
@@ -91,7 +125,7 @@ const HorizontalScroll: React.FC = () => {
 								className={`absolute top-0 right-0 w-1/2 h-full ${
 									sections[index + 1].blendColor
 								} blended-background pointer-events-none`}
-								style={{ zIndex: -1 }}
+								style={{ zIndex: -2 }}
 							></div>
 						)}
 					</div>
@@ -102,3 +136,4 @@ const HorizontalScroll: React.FC = () => {
 };
 
 export default HorizontalScroll;
+

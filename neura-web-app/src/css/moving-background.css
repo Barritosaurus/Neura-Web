@@ -30,6 +30,7 @@
     background-size: cover;
     animation: movingBackground 240s linear infinite;
     transition: opacity 0.5s ease-in-out;
+    filter: blur(0.25em) opacity(0.90);
   }
   
   .moving-background:last-child {

@@ -6,14 +6,14 @@ import { ThemeProvider } from "./ThemeContext";
 import Background from "./components/Background";
 
 function App() {
-    return (
-        <ThemeProvider>
-            <div className="App">
-                <Background />
-                <HorizontalScroll />
-            </div>
-        </ThemeProvider>
-    );
+	return (
+		<ThemeProvider>
+			<div className="App">
+				<Background />
+				<HorizontalScroll />
+			</div>
+		</ThemeProvider>
+	);
 }
 
 export default App;

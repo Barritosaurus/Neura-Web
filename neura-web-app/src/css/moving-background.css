@@ -29,7 +29,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     animation: movingBackground 240s linear infinite;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
   
   .moving-background:last-child {

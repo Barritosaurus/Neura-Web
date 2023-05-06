@@ -6,7 +6,6 @@ coverage
 *.md
 *.html
 *.json
-*.css
 
 .gitignore
 .prettierignore

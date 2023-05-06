@@ -85,65 +85,68 @@ const MyComponent: React.FC = () => {
       	<div className="popup-overlay">
           <div className="popup-content">					
 						<div className="grid-container">
-              <p className="display-text" style={{fontSize: '2rem', marginTop: '0em'}}>
+              <p className="display-text" style={{fontSize: '3vh'}}>
 								Application information
-									<p style={{fontSize: '1.7rem'}}>
+									<p style={{fontSize: '2vh'}}>
 										First name
 											<div className="input-field"><InputField maskType={0b1110} onInputChange={handleFirstNameChange}/></div>
 									</p>
-									<p style={{fontSize: '1.7rem'}}>
+									<p style={{fontSize: '2vh'}}>
 										Last name
 											<div className="input-field"><InputField maskType={0b1110} onInputChange={handleLastNameChange}/></div>
 									</p> 
-									<p style={{fontSize: '1.7rem'}}>
+									<p style={{fontSize: '2vh'}}>
 										Email
 											<div className="input-field"><InputField maskType={0b1111} onInputChange={handleEmaiChange}/></div>
 									</p> 
-									<p style={{fontSize: '1.7rem'}}>
+									<p style={{fontSize: '2vh'}}>
 										Phone number
 											<div className="input-field"><InputField maskType={0b0111} onInputChange={handlePhoneNumber}/></div>
 									</p> 
-									<p style={{fontSize: '1.7rem'}}>
+									<p style={{fontSize: '2vh'}}>
 										Address(optional)
 											<div className="input-field"><InputField maskType={0b1111} onInputChange={handleAddress}/></div>
 											<br></br>
 									</p> 
 								</p>
-                </div>
-								<div className="grid-container">
-                  <h1 className="link-text" style={{fontSize: '1.5rem'}}>
-                    Resume*
-                  </h1> 
-                  <input type="file" name="file" onChange={changeHandler} />
-                    <div>
-										<br></br>
-                      <button
-											style={{
-											borderRadius: "25px",
-											padding: "15px 15px",
-											border: "none",
-											cursor: "pointer",
-											background: "green",
-											color: "white",
-											}}
-											onClick={handleSubmission}>Submit</button>
-                    </div>
-                </div>
-            <button
+              </div>
+						<div className="grid-container">
+              <h1 className="link-text" style={{fontSize: '2vh'}}>
+                Resume*
+              </h1> 
+							<input type="file" name="file" onChange={changeHandler} />
+							<div>
+								<br></br>
+									<button
+										style={{
+										borderRadius: "25px",
+										padding: "1vw 1.5vh",
+										border: "none",
+										cursor: "pointer",
+										background: "green",
+										color: "white",
+										}}
+										onClick={handleSubmission}>Submit
+									</button>
+							</div>
+						</div>
+					<button
 						style={{
 						float: "right",
 						borderRadius: "25px",
-						padding: "15px 15px",
+						padding: "1vw 2vh",
 						border: "none",
 						cursor: "pointer",
 						background: "red",
 						color: "white",
 						}} 
-						onClick={handlePopupClose}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
+						onClick={handlePopupClose}>
+						Close
+					</button>
+				</div>
+			</div>
+			)}
+		</div>
   );
 };
 

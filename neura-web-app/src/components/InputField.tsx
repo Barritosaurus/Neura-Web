@@ -15,9 +15,10 @@ type ComponentText = {
 
 interface Props {
   maskType: number
+  onInputChange: (inputValue: string) => void;
 }
 
-const InputField: FC<Props> = ({maskType}) => {
+const InputField: FC<Props> = ({maskType, onInputChange}) => {
   const NUMERIC_MASK = 0b1000;
   const ALPHABETIC_MASK = 0b0100;
   const WHITESPACE_MASK = 0b0010;
@@ -32,10 +33,11 @@ const InputField: FC<Props> = ({maskType}) => {
   //updates text that is input by user
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({...values, [e.target.name]: e.target.value});
-    console.log(values.text);
+    onInputChange(e.target.value);
+    // console.log("submit", values);
   }
 
-  //logs text to console
+  //logs text to console when hitting submit within this component
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("submit", values);

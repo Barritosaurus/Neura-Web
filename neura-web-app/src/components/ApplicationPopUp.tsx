@@ -10,7 +10,6 @@ const MyComponent: React.FC = () => {
 	const openModal = () => {
 		setModalOpen(true);
 	};
-
 	const closeModal = () => {
 		setModalOpen(false);
 	};
@@ -26,9 +25,15 @@ const MyComponent: React.FC = () => {
 	const handleSubmission = () => {
 		const formData = new FormData();
 		formData.append("File", selectedFile);
+		console.log("First name:", firstName);
+		console.log("Last name:", lastName);
+		console.log("Email:", email);
+		console.log("Phone number:", phoneNumber);
+		console.log("Address:", address);
 	};
 
   const [showPopup, setShowPopup] = useState(false);
+	
   const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = () => {
@@ -42,38 +47,65 @@ const MyComponent: React.FC = () => {
     setInputValue("");
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+  // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setInputValue(event.target.value);
+  // };
+	
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [address, setAddress] = useState("");
+
+	const handleFirstNameChange = (inputValue: string) => {
+    setFirstName(inputValue);
   };
 
+	const handleLastNameChange = (inputValue: string) => {
+    setLastName(inputValue);
+  };
+
+	const handleEmaiChange = (inputValue: string) => {
+    setEmail(inputValue);
+  };
+
+	const handlePhoneNumber = (inputValue: string) => {
+    setPhoneNumber(inputValue);
+  };
+
+	const handleAddress = (inputValue: string) => {
+    setAddress(inputValue);
+  };
+
+
   return (
-    <div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
-      <button onClick={handleButtonClick}>Apply</button>
+  	<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
+    	<button onClick={handleButtonClick}>Apply</button>
       {showPopup && (
-        <div className="popup-overlay">
+      	<div className="popup-overlay">
           <div className="popup-content">					
 						<div className="grid-container">
               <p className="display-text" style={{fontSize: '2rem', marginTop: '0em'}}>
 								Application information
 									<p style={{fontSize: '1.7rem'}}>
 										First name
-											<div className="input-field"><InputField maskType={0b1110}/></div>
+											<div className="input-field"><InputField maskType={0b1110} onInputChange={handleFirstNameChange}/></div>
 									</p>
 									<p style={{fontSize: '1.7rem'}}>
 										Last name
-											<div className="input-field"><InputField maskType={0b1110}/></div>
+											<div className="input-field"><InputField maskType={0b1110} onInputChange={handleLastNameChange}/></div>
 									</p> 
 									<p style={{fontSize: '1.7rem'}}>
 										Email
-											<div className="input-field"><InputField maskType={0b1111}/></div>
+											<div className="input-field"><InputField maskType={0b1111} onInputChange={handleEmaiChange}/></div>
 									</p> 
 									<p style={{fontSize: '1.7rem'}}>
 										Phone number
-											<div className="input-field"><InputField maskType={0b0111}/></div>
+											<div className="input-field"><InputField maskType={0b0111} onInputChange={handlePhoneNumber}/></div>
 									</p> 
 									<p style={{fontSize: '1.7rem'}}>
 										Address(optional)
-											<div className="input-field"><InputField maskType={0b1111}/></div>
+											<div className="input-field"><InputField maskType={0b1111} onInputChange={handleAddress}/></div>
 											<br></br>
 									</p> 
 								</p>

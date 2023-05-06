@@ -9,37 +9,37 @@ interface ImageTableProps {
 }
 
 const ImageTable: React.FC<ImageTableProps> = ({ images, visible }) => {
-    const [visibleImages, setVisibleImages] = useState<ImageCardProps[]>([]);
+	const [visibleImages, setVisibleImages] = useState<ImageCardProps[]>([]);
 
-    useEffect(() => {
-        if (visible) {
-            const timeouts = images.map((image, index) => {
-                return setTimeout(() => {
-                    setVisibleImages((prevState) => [...prevState, image]);
-                }, index * 100);
-            });
+	useEffect(() => {
+		if (visible) {
+			const timeouts = images.map((image, index) => {
+				return setTimeout(() => {
+					setVisibleImages((prevState) => [...prevState, image]);
+				}, index * 100);
+			});
 
-            return () => {
-                timeouts.forEach((timeout) => clearTimeout(timeout));
-            };
-        } else {
-            setVisibleImages([]);
-        }
-    }, [visible, images]);
+			return () => {
+				timeouts.forEach((timeout) => clearTimeout(timeout));
+			};
+		} else {
+			setVisibleImages([]);
+		}
+	}, [visible, images]);
 
-    return (
-        <div className="flex flex-col items-center z-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-[auto] mr-4 z-10">
-                <TransitionGroup component={null}>
-                    {visibleImages.map((image) => (
-                        <CSSTransition key={image.id} timeout={300} classNames="card">
-                            <ImageCard {...image} />
-                        </CSSTransition>
-                    ))}
-                </TransitionGroup>
-            </div>
-        </div>
-    );
+	return (
+		<div className="flex flex-col items-center z-10">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 auto-rows-[auto] mr-4 z-10">
+				<TransitionGroup component={null}>
+					{visibleImages.map((image) => (
+						<CSSTransition key={image.id} timeout={300} classNames="card">
+							<ImageCard {...image} />
+						</CSSTransition>
+					))}
+				</TransitionGroup>
+			</div>
+		</div>
+	);
 };
 
 export default ImageTable;

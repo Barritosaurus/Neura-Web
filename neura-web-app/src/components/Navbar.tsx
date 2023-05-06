@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ sections, onNavigate }) => {
 					<li key={section.id} className="flex-grow text-center">
 						<button
 							onClick={() => onNavigate(index)}
-							className={`text-white font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 active:shadow-lg transition-shadow duration-300 ${theme.headerFont}`}
+							className={`text-white bg-gray-800 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 active:shadow-lg transition-shadow duration-300 ${theme.headerFont}`}
 						>
 							{section.title}
 						</button>
@@ -28,3 +28,4 @@ const Navbar: React.FC<NavbarProps> = ({ sections, onNavigate }) => {
 };
 
 export default Navbar;
+

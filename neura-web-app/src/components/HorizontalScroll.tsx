@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import LandingPage from "../pages/LandingPage";
 import AboutUs from "../pages/AboutUs";
 import { ThemeProvider } from "../ThemeContext";
+import ApplicationPopUs from "../components/ApplicationPopUp";
 
 interface SectionProps {
     id: string;
@@ -95,6 +96,7 @@ const HorizontalScroll: React.FC = () => {
 					id={section.id}
 					className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} flex items-center justify-center z-neg-1`}
 				>
+					<ApplicationPopUs />
 					<div className="h-full w-full">
 						<div className="custom-scrollbar h-full w-full overflow-y-auto">
 							<h2 className="text-3xl font-bold mb-4">{section.title}</h2>

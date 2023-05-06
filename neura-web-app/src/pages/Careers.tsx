@@ -7,10 +7,10 @@ import { useState } from "react";
 import CareerCard from "../components/CareerCard";
 import "../App.css";
 const jobs: Job[] = [
-    {
-        title: "Game Developer",
-        description: "Join our game development team!",
-        details: `
+	{
+		title: "Game Developer",
+		description: "Join our game development team!",
+		details: `
             <details>
                 <summary>Job Requirements</summary>
                 <ul>
@@ -33,49 +33,49 @@ const jobs: Job[] = [
                 </ul>
             </details>
         `,
-        salary: "Negotiable",
-    },
-    {
-        title: "Product Manager",
-        description: "test",
-        details: "details",
-        salary: "140k/hr",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
-    {
-        title: "Data Scientist",
-        description: "test",
-        details: "details",
-    },
+		salary: "Negotiable",
+	},
+	{
+		title: "Product Manager",
+		description: "test",
+		details: "details",
+		salary: "140k/hr",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
+	{
+		title: "Data Scientist",
+		description: "test",
+		details: "details",
+	},
 ];
 
 type Job = {
@@ -86,74 +86,74 @@ type Job = {
 };
 
 const CareersPage = () => {
-    const [selectedJobIndex, setSelectedJobIndex] = useState<number | null>(null);
+	const [selectedJobIndex, setSelectedJobIndex] = useState<number | null>(null);
 
-    const handleJobClick = (index: number) => {
-        setSelectedJobIndex(index);
-    };
+	const handleJobClick = (index: number) => {
+		setSelectedJobIndex(index);
+	};
 
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
+	const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-    const handleClick = () => {
-        setIsButtonClicked(!isButtonClicked);
-    };
+	const handleClick = () => {
+		setIsButtonClicked(!isButtonClicked);
+	};
 
-    return (
-        <div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">
-            <div className="flex-1 p-5 rounded-lg overflow-y-auto custom-scrollbar">
-                {jobs.map((job, index) => (
-                    <CareerCard
-                        key={index}
-                        job={job}
-                        index={index}
-                        selectedJobIndex={selectedJobIndex}
-                        handleJobClick={handleJobClick}
-                    />
-                ))}
-            </div>
-            <div className="details-container" style={{ flex: 2, height: "100%" }}>
-                <div className="custom-scrollbar p-5 details-container flex-2 top-0 overflow-auto">
-                    {selectedJobIndex !== null && (
-                        <div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
-                            <div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
-                                <button
-                                    className={`absolute top-2 right-2 ${
-                                        isButtonClicked
-                                            ? "bg-green-500 transition-colors duration-300 ease-out border"
-                                            : "bg-blue-500 border-solid border-2 border-sky-500 border-e-4 transition-colors duration-300 ease-in"
-                                    }
+	return (
+		<div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">
+			<div className="flex-1 p-5 rounded-lg overflow-y-auto custom-scrollbar">
+				{jobs.map((job, index) => (
+					<CareerCard
+						key={index}
+						job={job}
+						index={index}
+						selectedJobIndex={selectedJobIndex}
+						handleJobClick={handleJobClick}
+					/>
+				))}
+			</div>
+			<div className="details-container" style={{ flex: 2, height: "100%" }}>
+				<div className="custom-scrollbar p-5 details-container flex-2 top-0 overflow-auto">
+					{selectedJobIndex !== null && (
+						<div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
+							<div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
+								<button
+									className={`absolute top-2 right-2 ${
+										isButtonClicked
+											? "bg-green-500 transition-colors duration-300 ease-out border"
+											: "bg-blue-500 border-solid border-2 border-sky-500 border-e-4 transition-colors duration-300 ease-in"
+									}
         rounded-full px-4 py-2 border-none cursor-pointer
         `}
-                                    onClick={handleClick}
-                                >
-                                    {isButtonClicked ? "Applied!" : "Apply Now"}
-                                </button>
-                            </div>
-                            <div className="space-y-4">
-                                <h2 className="text-center text-2xl font-semibold">
-                                    {jobs[selectedJobIndex].title}
-                                </h2>
-                                {jobs[selectedJobIndex].salary ? (
-                                    <div className="mx-4">
-                                        <p className="text-lg flex items-center">
-                                            <BsFillBriefcaseFill className="mr-2" />
-                                            {jobs[selectedJobIndex].salary}
-                                        </p>
-                                        <p>{jobs[selectedJobIndex].description}</p>
-                                    </div>
-                                ) : null}
-                                <p
-                                    dangerouslySetInnerHTML={{
-                                        __html: jobs[selectedJobIndex].details,
-                                    }}
-                                ></p>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
+									onClick={handleClick}
+								>
+									{isButtonClicked ? "Applied!" : "Apply Now"}
+								</button>
+							</div>
+							<div className="space-y-4">
+								<h2 className="text-center text-2xl font-semibold">
+									{jobs[selectedJobIndex].title}
+								</h2>
+								{jobs[selectedJobIndex].salary ? (
+									<div className="mx-4">
+										<p className="text-lg flex items-center">
+											<BsFillBriefcaseFill className="mr-2" />
+											{jobs[selectedJobIndex].salary}
+										</p>
+										<p>{jobs[selectedJobIndex].description}</p>
+									</div>
+								) : null}
+								<p
+									dangerouslySetInnerHTML={{
+										__html: jobs[selectedJobIndex].details,
+									}}
+								></p>
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default CareersPage;

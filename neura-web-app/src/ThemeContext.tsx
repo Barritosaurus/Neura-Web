@@ -14,7 +14,7 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 	const theme = {
-		headerFont: "text-3xl font-bold text-white",
+		headerFont: "text-3xl text-white font-h2 font-bold",
 	};
 
 	return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;

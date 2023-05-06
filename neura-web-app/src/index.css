@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BASE */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,6 +17,55 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'ABeeZee Italic';
+    src: url('./assets/fonts/ABeeZee-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'ABeeZee';
+    src: url('./assets/fonts/ABeeZee-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo Variable Italic';
+    src: url('./assets/fonts/Exo-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Exo Variable';
+    src: url('./assets/fonts/Exo-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metrophobic';
+    src: url('./assets/fonts/Metrophobic-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* CUSTOM DEFAULT BASE STYLING */
+@layer base {
+    h1 {
+        @apply font-h1
+    }
+    h2 {
+        @apply font-h2
+    }
+    body {
+        @apply font-body
+    }
 }
 
 a {
@@ -43,7 +97,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1e1e1e;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -52,6 +106,12 @@ button:hover {
 }
 button:focus {
   outline: none  !important;
+}
+
+landing-footer {
+    position: absolute;
+    justify-content: center;
+    
 }
 
 @media (prefers-color-scheme: light) {
@@ -63,10 +123,7 @@ button:focus {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background: none;
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

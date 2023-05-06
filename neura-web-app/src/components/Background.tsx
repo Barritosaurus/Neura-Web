@@ -72,14 +72,10 @@ const Backgrounds = () => {
                 opacity: loading ? 0 : 1,
             }}
         >
-            <img
-                onLoad={onLoad}
-                src={backgrounds[currentBackground]}
-                style={{ display: "none" }}
-                alt=""
-            />
+            <img className="hidden" onLoad={onLoad} src={backgrounds[currentBackground]} alt="" />
         </div>
     );
 };
 
 export default Backgrounds;
+

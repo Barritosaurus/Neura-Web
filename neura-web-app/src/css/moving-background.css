@@ -1,0 +1,41 @@
+@keyframes movingBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  .moving-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 100%;
+    z-index: -2;
+    background-position: 0% 0%;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: movingBackground 240s linear infinite;
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  .moving-background:last-child {
+    z-index: -1;
+  }
+  
+  .moving-background.active {
+    opacity: 1;
+  }

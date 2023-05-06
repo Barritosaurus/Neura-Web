@@ -1,42 +1,35 @@
-// LandingPage.tsx
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { SiRoblox } from "react-icons/si";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import TwitterFeed from "../components/TwitterFeed";
-import ImageTable from "../components/ImageTable";
-import { ImageCardProps } from "../components/ImageCard";
-import IMAGES from "../images/images";
+// import TwitterFeed from "../components/TwitterFeed";
+// import ImageTable from "../components/ImageTable";
+// import { ImageCardProps } from "../components/ImageCard";
+// import IMAGES from "../images/images";
 
 interface LandingPageProps {
     activePage: string;
 }
 
-const imageTableData: ImageCardProps[] = [
-	{ id: "1", src: IMAGES.abandondedpreview },
-	{ id: "2", src: IMAGES.bedroompreview },
-	{ id: "3", src: IMAGES.citypreview1 },
-	{ id: "4", src: IMAGES.citypreview2 },
-	{ id: "5", src: IMAGES.citypreview3 },
-	{ id: "6", src: IMAGES.diningroompreview },
-	{ id: "7", src: IMAGES.kineticcodepreview },
-	{ id: "8", src: IMAGES.livingroompreview },
-	{ id: "9", src: IMAGES.livingroompreview2 },
-	{ id: "10", src: IMAGES.prisonroyalpreview },
-	{ id: "11", src: IMAGES.roverseogpreview },
-	{ id: "12", src: IMAGES.squarepreview },
-	{ id: "13", src: IMAGES.walkwaypreview },
+// const imageTableData: ImageCardProps[] = [
+// 	{ id: "1", src: IMAGES.abandondedpreview },
+// 	{ id: "2", src: IMAGES.bedroompreview },
+// 	{ id: "3", src: IMAGES.citypreview1 },
+// 	{ id: "4", src: IMAGES.citypreview2 },
+// 	{ id: "5", src: IMAGES.citypreview3 },
+// 	{ id: "6", src: IMAGES.diningroompreview },
+// 	{ id: "7", src: IMAGES.kineticcodepreview },
+// 	{ id: "8", src: IMAGES.livingroompreview },
+// 	{ id: "9", src: IMAGES.livingroompreview2 },
+// 	{ id: "10", src: IMAGES.prisonroyalpreview },
+// 	{ id: "11", src: IMAGES.roverseogpreview },
+// 	{ id: "12", src: IMAGES.squarepreview },
+// 	{ id: "13", src: IMAGES.walkwaypreview },
 
-	// ... more images as needed ...
-];
+// 	// ... more images as needed ...
+// ];
 
 const LandingPage: React.FC<LandingPageProps> = () => {
-	const [_visible, setVisible] = useState(false);
-
-	useEffect(() => {
-		setVisible(true);
-	}, []);
-
 	return (
 		<div className="flex flex-col items-center justify-center w-full h-full bg-transparent relative">
 			<div className="absolute top-0 left-0 right-0 z-20">
@@ -67,12 +60,12 @@ const LandingPage: React.FC<LandingPageProps> = () => {
 					</a>
 				</div>
 				<div className="mt-8 z-10 flex w-full">
-					<div className="w-3/10">
+					{/* <div className="w-3/10">
 						<TwitterFeed />
 					</div>
 					<div className="w-7/10">
 						<ImageTable images={imageTableData} visible={_visible} />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

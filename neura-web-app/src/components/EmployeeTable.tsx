@@ -27,11 +27,9 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ employees, visible }) => 
 		}
 	}, [visible, employees]);
 
-	const scrollClass = visibleEmployees.length > 6 ? "overflow-y-scroll" : "overflow-y-auto";
-
 	return (
 		<div className="flex flex-col items-center z-10">
-			<div className={`w-full max-w-3xl h-[80vh] ${scrollClass} custom-scrollbar pb-8  z-10`}>
+			<div className={"w-full max-w-3xl h-[80vh]  pb-8  z-10"}>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[auto] mr-4  z-10">
 					<TransitionGroup component={null}>
 						{visibleEmployees.map((employee) => (
@@ -47,4 +45,3 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ employees, visible }) => 
 };
 
 export default EmployeeTable;
-

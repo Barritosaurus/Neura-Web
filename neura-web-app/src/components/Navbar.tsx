@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ sections, onNavigate }) => {
 	const theme = useTheme();
 
 	return (
-		<nav className="bg-gray-800 py-2 px-4 w-full z-20">
+		<nav className="bg-gray-800 py-2 px-4 w-full z-30">
 			<ul className="flex justify-center space-x-4">
 				{sections.map((section, index) => (
 					<li key={section.id} className="flex-grow text-center">
@@ -28,4 +28,3 @@ const Navbar: React.FC<NavbarProps> = ({ sections, onNavigate }) => {
 };
 
 export default Navbar;
-

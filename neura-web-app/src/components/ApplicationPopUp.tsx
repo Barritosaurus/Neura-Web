@@ -1,18 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import InputField from "../components/InputField";
 import "../css/application-pop-up.css"
 
 const MyComponent: React.FC = () => {
-
-	const [isModalOpen, setModalOpen] = useState(false);
-
-	const openModal = () => {
-		setModalOpen(true);
-	};
-	const closeModal = () => {
-		setModalOpen(false);
-	};
 
 	const [selectedFile, setSelectedFile]: [Blob, Function] = useState(new Blob());
 	//const [isFilePicked, setIsFilePicked] = useState(false);
@@ -38,12 +28,10 @@ const MyComponent: React.FC = () => {
 
   const handleButtonClick = () => {
     setShowPopup(true);
-		setModalOpen(true);
   };
 
   const handlePopupClose = () => {
     setShowPopup(false);
-		setModalOpen(false);
     setInputValue("");
   };
 
@@ -81,7 +69,7 @@ const MyComponent: React.FC = () => {
   return (
   	<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
     	<button onClick={handleButtonClick}>Apply</button>
-      {showPopup && (
+			{showPopup && (
       	<div className="popup-overlay">
           <div className="popup-content">					
 						<div className="grid-container">

@@ -123,4 +123,3 @@ const HorizontalScroll: React.FC = () => {
 };
 
 export default HorizontalScroll;
-

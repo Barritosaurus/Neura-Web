@@ -89,18 +89,8 @@ const CareersPage = () => {
     };
 
     return (
-        <div
-            className="custom-scrollbar"
-            style={{
-                position: "relative",
-                display: "flex",
-                margin: "0",
-                height: "100%",
-                overflow: "hidden",
-                overflowY: "auto",
-            }}
-        >
-            <div className="left-column custom-scrollbar">
+        <div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">
+            <div className="flex-1 p-5 rounded-lg overflow-y-auto custom-scrollbar">
                 {jobs.map((job, index) => (
                     <CareerCard
                         key={index}
@@ -121,32 +111,18 @@ const CareersPage = () => {
                     }}
                 >
                     {selectedJobIndex !== null && (
-                        <div
-                            className="details-container"
-                            style={{
-                                borderRadius: "20px",
-                                backgroundColor: "white",
-                                padding: "20px",
-                                color: "black",
-                                position: "relative",
-                            }}
-                        >
+                        <div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
                             <h2>{jobs[selectedJobIndex].title}</h2>
                             <p>{jobs[selectedJobIndex].description}</p>
                             <p>{jobs[selectedJobIndex].details}</p>
                             <button
-                                className={`apply-now-button ${isButtonClicked ? "clicked" : ""}`}
-                                style={{
-                                    position: "absolute",
-                                    top: "10px",
-                                    right: "10px",
-                                    backgroundColor: "#3a86ff",
-                                    color: "white",
-                                    borderRadius: "50px",
-                                    padding: "10px 15px",
-                                    border: "none",
-                                    cursor: "pointer",
-                                }}
+                                className={`apply-now-button ${
+                                    isButtonClicked
+                                        ? "bg-purple-500 transition-colors duration-300 ease-out"
+                                        : "bg-red-700 transition-colors duration-300 ease-in"
+                                }
+                                absolute top-2 right-2 rounded-full px-4 py-2 border-none cursor-pointer
+                                `}
                                 onClick={handleClick}
                             >
                                 {isButtonClicked ? "Applied!" : "Apply Now"}
@@ -160,4 +136,3 @@ const CareersPage = () => {
 };
 
 export default CareersPage;
-

@@ -39,7 +39,9 @@ const Backgrounds = () => {
             backgroundElement.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
             backgroundElement.style.transition = "opacity 0.5s ease-in-out";
             setTimeout(() => {
-                backgroundElement.style.opacity = "1";
+                if (backgroundElement) {
+                    backgroundElement.style.opacity = "1";
+                }
                 setLoading(false);
             }, 0);
         }
@@ -48,7 +50,9 @@ const Backgrounds = () => {
     useEffect(() => {
         if (loaded) {
             const backgroundElement = backgroundRef.current;
-            backgroundElement.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
+            if (backgroundElement) {
+                backgroundElement.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
+            }
             setTimeout(() => {
                 setLoading(false);
             }, 0);
@@ -79,4 +83,3 @@ const Backgrounds = () => {
 };
 
 export default Backgrounds;
-

@@ -81,10 +81,10 @@ const MyComponent: React.FC = () => {
 	};
 
 	return (
-	<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
-		<button onClick={handleButtonClick}>Apply</button>
+		<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
+			<button onClick={handleButtonClick}>Apply</button>
 			{showPopup && (
-		<div className="popup-overlay">
+				<div className="popup-overlay">
 					<div className="popup-content">			
 						<div className="grid-container">
 							<p className="display-text" style={{fontSize: "3vh"}}>

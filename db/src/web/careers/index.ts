@@ -18,7 +18,7 @@ router.put(
 		const id = req.body.id as unknown as number;
 		const title = req.body.title as unknown as string;
 		const description = req.body.description as unknown as string;
-		const details = req.body.details as unknown;
+		const details = req.body.details as unknown as string;
 		const salary = req.body.salary as unknown as string;
 		
 

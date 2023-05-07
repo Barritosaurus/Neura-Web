@@ -8,7 +8,7 @@ import CareerCard from "../components/CareerCard";
 import "../App.css";
 import callApi from "../api";
 
-var jobs: Job[] = [
+let jobs: Job[] = [
 	{
 		title: "Game Developer",
 		description: "Join our game development team!",
@@ -131,7 +131,7 @@ const CareersPage = () => {
 	};
 	fetchJobs();
 
-	jobs = allCareers.length > 0 ? allCareers : jobs
+	jobs = allCareers.length > 0 ? allCareers : jobs;
 	
 
 	return (

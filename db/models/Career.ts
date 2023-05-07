@@ -5,7 +5,7 @@ export interface CareerAttributes {
 	id: number;
 	title: string;
 	description: string;
-	details: JSON;
+	details: string;
 	salary: string;
 }
 
@@ -19,7 +19,7 @@ export class Career
 	declare id: number;
 	declare title: string;
 	declare description: string;
-	declare details: JSON;
+	declare details: string;
 	declare salary: string;
 }
 
@@ -40,7 +40,7 @@ Career.init(
 			allowNull: true
 		},
 		details: {
-			type: DataTypes.JSON,
+			type: DataTypes.STRING,
 			allowNull: true,
 		},
 		salary:	{

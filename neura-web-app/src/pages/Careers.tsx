@@ -6,7 +6,9 @@ import { BsFillBriefcaseFill } from "react-icons/bs";
 import { useState } from "react";
 import CareerCard from "../components/CareerCard";
 import "../App.css";
-const jobs: Job[] = [
+import callApi from "../api";
+
+var jobs: Job[] = [
 	{
 		title: "Game Developer",
 		description: "Join our game development team!",
@@ -85,6 +87,7 @@ type Job = {
 };
 
 const CareersPage = () => {
+	const [allCareers, setAllCareers] = useState<Job[]>([]);
 	const [selectedJobIndex, setSelectedJobIndex] = useState<number | null>(null);
 
 	const handleJobClick = (index: number) => {
@@ -96,6 +99,40 @@ const CareersPage = () => {
 	const handleClick = () => {
 		setIsButtonClicked(!isButtonClicked);
 	};
+
+	const fetchJobs = async () => {
+		try {
+			const careers: Job[] = await callApi("GET", "/careers/getall");
+			const newCareers: Job[] = [];
+			if (careers.length > 0) {
+				careers.map((job: Job) => {
+					const newJob: Job = {
+						title: "",
+						description: "",
+						details: "",
+					};
+					console.log(job);
+	
+
+	
+					newJob.title = job.title;
+					newJob.description = job.description;
+					newJob.details = job.details;
+					newJob.salary = job.salary;
+
+	
+					newCareers.push(newJob);
+				});
+			}
+			setAllCareers(newCareers);
+		} catch (error) {
+			console.error("Error fetching jobs:", error);
+		}
+	};
+	fetchJobs();
+
+	jobs = allCareers.length > 0 ? allCareers : jobs
+	
 
 	return (
 		<div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">

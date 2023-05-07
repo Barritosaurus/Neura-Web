@@ -89,12 +89,12 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 					};
 					console.log(employee);
 
-					const links = employee.links as {
-				github?: string;
-				twitter?: string;
-				linkedin?: string;
-				roblox?: string;
-			};
+				const links = employee.links as {
+					github?: string;
+					twitter?: string;
+					linkedin?: string;
+					roblox?: string;
+					};
 
 					newEmployee.name = employee.name;
 					newEmployee.position = employee.position;

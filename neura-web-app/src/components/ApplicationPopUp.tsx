@@ -52,8 +52,6 @@ const MyComponent: React.FC = () => {
 
 
   const [showPopup, setShowPopup] = useState(false);
-	
-  const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = () => {
     setShowPopup(true);
@@ -61,7 +59,6 @@ const MyComponent: React.FC = () => {
 
   const handlePopupClose = () => {
     setShowPopup(false);
-    setInputValue("");
   };
 
 	const handleFirstNameChange = (inputValue: string) => {

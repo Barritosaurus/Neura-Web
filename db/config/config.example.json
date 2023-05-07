@@ -1,0 +1,9 @@
+{
+	"development": {
+		"username": "neura",
+		"password": "NEURA_PASSWORD_HERE",
+		"database": "Neura_Web",
+		"host": "localhost",
+		"dialect": "postgres"
+	}
+}

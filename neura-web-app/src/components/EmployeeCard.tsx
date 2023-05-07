@@ -24,7 +24,7 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({
 	imageUrl,
 }) => {
 	return (
-		<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
+		<div className="bg-white text-black rounded-lg shadow p-4 flex flex-col items-center space-y-4">
 			<div className="w-24 h-24 relative">
 				<img
 					src={imageUrl}
@@ -64,3 +64,4 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({
 };
 
 export default EmployeeCard;
+

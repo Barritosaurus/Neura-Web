@@ -1,0 +1,42 @@
+{
+	"name": "neuraone-database",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"build": "rimraf ./dist && tsc",
+		"start": "npm run build && node --experimental-json-modules --experimental-specifier-resolution=node -r source-map-support/register dist/src/main.js",
+		"dev": "nodemon -e ts,json --watch src/ --watch migrations/ --watch models/ --watch .env --ignore dist/ --exec \"npm run start\"",
+		"lint": "bash -c \"tsc --noemit\" && prettier --parser typescript --write",
+		"setup-db": "sequelize db:create && sequelize db:migrate",
+		"start-no-build": "node --experimental-json-modules --experimental-specifier-resolution=node -r source-map-support/register dist/src/main.js",
+		"migrate": "npm run build && node --experimental-json-modules --experimental-specifier-resolution=node -r source-map-support/register dist/src/migrate.js"
+	},
+	"author": "Neura Studios LLC",
+	"license": "ISC",
+	"engines": {
+		"node": "v16.9.1"
+	},
+	"dependencies": {
+		"@types/node-cron": "^3.0.7",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"express-validator": "^6.14.2",
+		"node-cron": "^3.0.2",
+		"pg": "^8.8.0",
+		"sequelize": "^6.29.3",
+		"umzug": "^3.2.1"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.12",
+		"@types/express": "^4.17.14",
+		"@types/node": "^18.15.7",
+		"@types/sequelize": "^4.28.14",
+		"nodemon": "^2.0.20",
+		"rimraf": "^5.0.0",
+		"sequelize-cli": "^6.6.0",
+		"source-map-support": "^0.5.21",
+		"ts-node": "^10.9.1",
+		"typescript": "^4.8.4"
+	}
+}

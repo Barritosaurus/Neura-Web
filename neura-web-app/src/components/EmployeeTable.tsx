@@ -5,42 +5,43 @@ import "../css/grow-animation.css";
 
 interface EmployeeTableProps {
     employees: EmployeeCardProps[];
-    visible: boolean;
+    visible?: boolean;
 }
-
 const EmployeeTable: React.FC<EmployeeTableProps> = ({ employees, visible }) => {
 	const [visibleEmployees, setVisibleEmployees] = useState<EmployeeCardProps[]>([]);
+	const animationBreakpoint = 768; // Width breakpoint to disable animations (e.g., for phones)
 
 	useEffect(() => {
 		if (visible) {
-			const timeouts = employees.map((employee, index) => {
-				return setTimeout(() => {
-					setVisibleEmployees((prevState) => [...prevState, employee]);
-				}, index * 100);
-			});
+			if (window.innerWidth >= animationBreakpoint) {
+				const timeouts = employees.map((employee, index) => {
+					return setTimeout(() => {
+						setVisibleEmployees((prevState) => [...prevState, employee]);
+					}, index * 100);
+				});
 
-			return () => {
-				timeouts.forEach((timeout) => clearTimeout(timeout));
-			};
+				return () => {
+					timeouts.forEach((timeout) => clearTimeout(timeout));
+				};
+			} else {
+				// Disable animations on small devices
+				setVisibleEmployees(employees);
+			}
 		} else {
 			setVisibleEmployees([]);
 		}
 	}, [visible, employees]);
 
-	const scrollClass = visibleEmployees.length > 6 ? "overflow-y-scroll" : "overflow-y-auto";
-
 	return (
 		<div className="flex flex-col items-center z-10">
-			<div className={`w-full max-w-3xl h-[80vh] ${scrollClass} custom-scrollbar pb-8  z-10`}>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[auto] mr-4  z-10">
-					<TransitionGroup component={null}>
-						{visibleEmployees.map((employee) => (
-							<CSSTransition key={employee.name} timeout={300} classNames="card">
-								<EmployeeCard {...employee} />
-							</CSSTransition>
-						))}
-					</TransitionGroup>
-				</div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[auto] mr-4  z-10">
+				<TransitionGroup component={null}>
+					{visibleEmployees.map((employee) => (
+						<CSSTransition key={employee.name} timeout={300} classNames="card">
+							<EmployeeCard {...employee} />
+						</CSSTransition>
+					))}
+				</TransitionGroup>
 			</div>
 		</div>
 	);

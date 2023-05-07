@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import LandingPage from "../pages/LandingPage";
 import AboutUs from "../pages/AboutUs";
 import { ThemeProvider } from "../ThemeContext";
+import Careers from "../pages/Careers";
 
 interface SectionProps {
     id: string;
@@ -14,7 +15,7 @@ interface SectionProps {
 const sections: SectionProps[] = [
 	{
 		id: "about-us",
-		title: "About Us",
+		title: "About",
 		bgColor: "bg-transparent",
 		blendColor: "bg-yellow-600",
 	},
@@ -90,15 +91,9 @@ const HorizontalScroll: React.FC = () => {
 			);
 		case "careers":
 			return (
-				<div
-					key={section.id}
-					id={section.id}
-					className={`w-full h-full flex-shrink-0 p-4 ${section.bgColor} flex items-center justify-center z-neg-1`}
-				>
-					<div className="h-full w-full">
-						<div className="custom-scrollbar h-full w-full overflow-y-auto">
-							<h2 className="text-3xl font-bold mb-4">{section.title}</h2>
-						</div>
+				<div className="h-full w-full">
+					<div className="custom-scrollbar h-full w-full overflow-y-auto">
+						<Careers />
 					</div>
 				</div>
 			);

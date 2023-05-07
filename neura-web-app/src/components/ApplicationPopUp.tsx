@@ -7,7 +7,6 @@ import emailjs from '@emailjs/browser';
 
 const MyComponent: React.FC = () => {
 
-	const form = useRef();
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");

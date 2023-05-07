@@ -87,7 +87,6 @@ const MyComponent: React.FC = () => {
 			{showPopup && (
       	<div className="popup-overlay">
           <div className="popup-content">			
-					<form ref={form} onSubmit={handleSubmission}>		
 						<div className="grid-container">
               <p className="display-text" style={{fontSize: '3vh'}}>
 								Application information
@@ -150,7 +149,6 @@ const MyComponent: React.FC = () => {
 						onClick={handlePopupClose}>
 						Close
 					</button>
-					</form>
 				</div>
 			</div>
 			)}

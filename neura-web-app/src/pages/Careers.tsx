@@ -92,11 +92,11 @@ const CareersPage = () => {
 		setSelectedJobIndex(index);
 	};
 
-	const [isButtonClicked, setIsButtonClicked] = useState(false);
+	// const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-	const handleClick = () => {
-		setIsButtonClicked(!isButtonClicked);
-	};
+	// const handleClick = () => {
+	// 	setIsButtonClicked(!isButtonClicked);
+	// };
 
 	return (
 		<div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">

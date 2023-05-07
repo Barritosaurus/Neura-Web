@@ -6,6 +6,7 @@ import { BsFillBriefcaseFill } from "react-icons/bs";
 import { useState } from "react";
 import CareerCard from "../components/CareerCard";
 import "../App.css";
+import ApplicationPopUp from "../components/ApplicationPopUp";
 const jobs: Job[] = [
 	{
 		title: "Game Developer",
@@ -91,11 +92,11 @@ const CareersPage = () => {
 		setSelectedJobIndex(index);
 	};
 
-	const [isButtonClicked, setIsButtonClicked] = useState(false);
+	// const [isButtonClicked, setIsButtonClicked] = useState(false);
 
-	const handleClick = () => {
-		setIsButtonClicked(!isButtonClicked);
-	};
+	// const handleClick = () => {
+	// 	setIsButtonClicked(!isButtonClicked);
+	// };
 
 	return (
 		<div className="custom-scrollbar relative flex m-0 h-full overflow-hidden overflow-y-auto">
@@ -115,18 +116,7 @@ const CareersPage = () => {
 					{selectedJobIndex !== null && (
 						<div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
 							<div className="shadow-sm p-5 text-black relative bg-white rounded-xl">
-								<button
-									className={`absolute top-2 right-2 ${
-										isButtonClicked
-											? "bg-green-500 transition-colors duration-300 ease-out border"
-											: "bg-blue-500 border-solid border-2 border-sky-500 border-e-4 transition-colors duration-300 ease-in"
-									}
-        rounded-full px-4 py-2 border-none cursor-pointer
-        `}
-									onClick={handleClick}
-								>
-									{isButtonClicked ? "Applied!" : "Apply Now"}
-								</button>
+							<ApplicationPopUp />
 							</div>
 							<div className="space-y-4">
 								<h2 className="text-center text-2xl font-semibold">

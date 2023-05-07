@@ -1,10 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import InputField from "../components/InputField";
 import "../css/application-pop-up.css"
+import emailjs from '@emailjs/browser';
 
 const MyComponent: React.FC = () => {
+
+	const form = useRef();
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [address, setAddress] = useState("");
+
 
 	const [selectedFile, setSelectedFile]: [Blob, Function] = useState(new Blob());
 	//const [isFilePicked, setIsFilePicked] = useState(false);
@@ -14,7 +23,24 @@ const MyComponent: React.FC = () => {
 		//setIsFilePicked(true);
 	};
 
-	const handleSubmission = () => {
+	const handleSubmission = (e: any) => {
+		e.preventDefault();
+
+		const templateParams = {
+			first_name: firstName,
+			last_name: lastName,
+			user_email: email,
+			user_phone: phoneNumber,
+			user_address: address,
+		};
+
+		emailjs.send('service_tqew5r6', 'template_ubaf63t', templateParams, 'upFTPQrQeOgWhQzpl')
+		.then((result) => {
+				console.log(result.text);
+		}, (error) => {
+				console.log(error.text);
+		});
+
 		const formData = new FormData();
 		formData.append("File", selectedFile);
 		console.log("First name:", firstName);
@@ -23,6 +49,7 @@ const MyComponent: React.FC = () => {
 		console.log("Phone number:", phoneNumber);
 		console.log("Address:", address);
 	};
+
 
   const [showPopup, setShowPopup] = useState(false);
 	
@@ -36,16 +63,6 @@ const MyComponent: React.FC = () => {
     setShowPopup(false);
     setInputValue("");
   };
-
-  // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue(event.target.value);
-  // };
-	
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [email, setEmail] = useState("");
-	const [phoneNumber, setPhoneNumber] = useState("");
-	const [address, setAddress] = useState("");
 
 	const handleFirstNameChange = (inputValue: string) => {
     setFirstName(inputValue);
@@ -67,13 +84,13 @@ const MyComponent: React.FC = () => {
     setAddress(inputValue);
   };
 
-
   return (
   	<div className="bg-white rounded-lg shadow p-4 flex flex-col items-center space-y-4">
     	<button onClick={handleButtonClick}>Apply</button>
 			{showPopup && (
       	<div className="popup-overlay">
-          <div className="popup-content">					
+          <div className="popup-content">			
+					<form ref={form} onSubmit={handleSubmission}>		
 						<div className="grid-container">
               <p className="display-text" style={{fontSize: '3vh'}}>
 								Application information
@@ -108,6 +125,9 @@ const MyComponent: React.FC = () => {
 							<div>
 								<br></br>
 									<button
+										className='input-button'
+										type="submit"
+										value="Send"
 										style={{
 										borderRadius: "25px",
 										padding: "1vw 1.5vh",
@@ -133,6 +153,7 @@ const MyComponent: React.FC = () => {
 						onClick={handlePopupClose}>
 						Close
 					</button>
+					</form>
 				</div>
 			</div>
 			)}

@@ -123,6 +123,7 @@ const HorizontalScroll: React.FC = () => {
 					</div>
 				))}
 			</div>
+			
 		</div>
 	);
 };

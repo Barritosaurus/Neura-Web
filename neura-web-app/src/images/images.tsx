@@ -1,4 +1,8 @@
-const IMAGES = {
+interface Images {
+	[key: string]: string;
+  }
+
+const IMAGES: Images = {
 	ethanheadshot: new URL("./ethanheadshot.webp", import.meta.url).href,
 	genyaheadshot: new URL("./genyaheadshot.webp", import.meta.url).href,
 	juniperheadshot: new URL("./juniperheadshot.webp", import.meta.url).href,

@@ -1,10 +1,17 @@
+import React, { useState, useEffect, useRef } from "react";
+import EmployeeTable from "../components/EmployeeTable";
+import { EmployeeCardProps } from "../components/EmployeeCard";
+import GameTable from "../components/GameTable";
+import IMAGES from "../images/images";
+import callApi from "../api";
+
 const employees = [
 	{
 		name: "Ethan Flute",
 		position: "Gameplay Programmer",
-		github: "https://github.com/johndoe",
-		linkedin: "https://www.linkedin.com/in/johndoe/",
-		roblox: "https://www.roblox.com/users/123456789/profile",
+		github: "https://github.com/Barritosaurus",
+		linkedin: "https://www.linkedin.com/in/ethansamf/",
+		roblox: "https://www.roblox.com/users/141211828/profile",
 		imageUrl: IMAGES.ethanheadshot,
 	},
 	{
@@ -48,10 +55,17 @@ const games = [
 	// Add more game data as needed
 ];
 
-import React, { useState, useEffect, useRef } from "react";
-import EmployeeTable from "../components/EmployeeTable";
-import GameTable from "../components/GameTable";
-import IMAGES from "../images/images";
+interface Employee {
+	name: string;
+	position: string;
+	links: {
+		github?: string;
+		twitter?: string;
+		linkedin?: string;
+		roblox?: string;
+	};
+	image: string;
+}
 
 interface AboutUsProps {
     activePage: string;
@@ -60,6 +74,49 @@ interface AboutUsProps {
 const AboutUs: React.FC<AboutUsProps> = () => {
 	const [visible, setVisible] = useState(false);
 	const aboutUsRef = useRef<HTMLDivElement>(null);
+	const [allEmployees, setAllEmployees] = useState<EmployeeCardProps[]>([]);
+
+	const fetchEmployees = async () => {
+		try {
+			const employees: Employee[] = await callApi("GET", "/employees/getall");
+			const newEmployees: EmployeeCardProps[] = [];
+			if(employees.length > 0){
+				employees.map((employee: Employee) => {
+					const newEmployee: EmployeeCardProps = {
+						name: "",
+						position: "",
+						imageUrl: "",
+					};
+					console.log(employee);
+
+					const links = employee.links as {
+				github?: string;
+				twitter?: string;
+				linkedin?: string;
+				roblox?: string;
+			};
+
+					newEmployee.name = employee.name;
+					newEmployee.position = employee.position;
+					newEmployee.roblox = links.roblox;
+					newEmployee.github = links.github;
+					newEmployee.twitter = links.twitter;
+					newEmployee.linkedin = links.linkedin;
+					const imageKey:string = employee.image;
+					newEmployee.imageUrl = IMAGES[imageKey];
+
+					newEmployees.push(newEmployee);
+				});
+			}
+			setAllEmployees(newEmployees);
+		} catch (error) {
+			console.error("Error fetching employees:", error);
+		}
+	};
+
+	useEffect(() => {
+		fetchEmployees();
+	}, []);
 	const animationBreakpoint = 768; // Width breakpoint to disable animations (e.g., for phones)
 
 	useEffect(() => {
@@ -107,7 +164,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 					<div className="bg-white text-black rounded-lg shadow p-4 mb-4">
 						<h2 className="text-3xl font-semibold text-center text-black">Our Team</h2>
 					</div>
-					<EmployeeTable employees={employees} visible={shouldRenderContent} />
+					<EmployeeTable employees={allEmployees.length > 0 ? allEmployees : employees} visible={shouldRenderContent} />
 				</div>
 				<div className="w-full md:w-1/2 p-1">
 					{" "}

@@ -39,7 +39,6 @@ const jobs: Job[] = [
 		title: "Product Manager",
 		description: "test",
 		details: "details",
-		salary: "140k/hr",
 	},
 	{
 		title: "Data Scientist",

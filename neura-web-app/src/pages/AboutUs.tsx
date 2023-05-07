@@ -41,7 +41,6 @@ const employees = [
 	},
 	// Add more employee data as needed
 ];
-
 const games = [
 	{
 		name: "Kinetic Code",
@@ -118,6 +117,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 	useEffect(() => {
 		fetchEmployees();
 	}, []);
+	const animationBreakpoint = 768; // Width breakpoint to disable animations (e.g., for phones)
 
 	useEffect(() => {
 		if (aboutUsRef.current) {
@@ -131,7 +131,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 						}
 					});
 				},
-				{ threshold: 0.5 },
+				{ threshold: 0.1 },
 			);
 
 			observer.observe(aboutUsRef.current);
@@ -144,23 +144,37 @@ const AboutUs: React.FC<AboutUsProps> = () => {
 		}
 	}, []);
 
+	// Determine whether to enable animations based on viewport width
+	const enableAnimations = window.innerWidth >= animationBreakpoint;
+
+	// Determine whether to render content based on viewport width and visibility state
+	const shouldRenderContent = enableAnimations ? visible : true;
+
 	return (
 		<div
 			ref={aboutUsRef}
-			className="flex flex-col items-center justify-start w-full h-full space-y-16 pt-4 z-30 overflow-visible"
+			className={`flex flex-col items-center justify-start w-full h-full space-y-16 pt-4 z-30 overflow-visible ${
+				enableAnimations ? "animate-class" : ""
+			}`}
 		>
-			<div className="flex flex-wrap justify-center w-full">
+			<div className="flex flex-col md:flex-row w-full space-y-4 md:space-y-0">
 				<div className="w-full md:w-1/2 p-1">
-					<div className="bg-white rounded-lg shadow p-4 mb-4">
-						<h2 className="text-3xl font-semibold text-center">Our Team</h2>
+					{" "}
+					{/* Adjust width for larger screens */}
+					<div className="bg-white text-black rounded-lg shadow p-4 mb-4">
+						<h2 className="text-3xl font-semibold text-center text-black">Our Team</h2>
 					</div>
-					<EmployeeTable employees={allEmployees.length > 0 ? allEmployees : employees} visible={visible} />
+					<EmployeeTable employees={allEmployees.length > 0 ? allEmployees : employees} visible={shouldRenderContent} />
 				</div>
 				<div className="w-full md:w-1/2 p-1">
-					<div className="bg-white rounded-lg shadow p-4 mb-4">
+					{" "}
+					{/* Adjust width for larger screens */}
+					<div className="bg-white text-black rounded-lg shadow p-4 mb-4">
 						<h2 className="text-3xl font-semibold text-center">Our Games</h2>
 					</div>
-					<GameTable games={games} visible={visible} />
+					<div className="text-black">
+						<GameTable games={games} visible={shouldRenderContent} />
+					</div>
 				</div>
 			</div>
 		</div>

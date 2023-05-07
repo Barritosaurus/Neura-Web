@@ -4,13 +4,6 @@
   position: relative;
 }
 
-.horizontal-scroll {
-  display: flex;
-  overflow-x: hidden;
-  height: 100%;
-  width: 100%;
-}
-
 .custom-scrollbar::-webkit-scrollbar {
   width: 0.75rem;
   height: 0.75rem;

@@ -30,9 +30,9 @@ const GameCard: React.FC<GameCardProps> = ({ name, imageUrl, link }) => {
 				<a href={link} target="_blank" rel="noopener noreferrer">
 					<SiRoblox className="text-gray-900 hover:text-blue-600" size={24} />
 				</a>
-				<button onClick={toggleBlog}>
+				<button className="bg-white" onClick={toggleBlog}>
 					<BsFillChatSquareDotsFill
-						className={`text-gray-900 hover:text-blue-600 transition-transform duration-300 ${
+						className={`text-black hover:text-blue-600 transition-transform duration-300 ${
 							showDevBlog ? "transform scale-125" : ""
 						}`}
 						size={24}
@@ -57,3 +57,4 @@ const GameCard: React.FC<GameCardProps> = ({ name, imageUrl, link }) => {
 };
 
 export default GameCard;
+

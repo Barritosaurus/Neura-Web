@@ -10,18 +10,24 @@ interface GameTableProps {
 
 const GameTable: React.FC<GameTableProps> = ({ games, visible }) => {
 	const [visibleGames, setVisibleGames] = useState<GameCardProps[]>([]);
+	const animationBreakpoint = 768; // Width breakpoint to disable animations (e.g., for phones)
 
 	useEffect(() => {
 		if (visible) {
-			const timeouts = games.map((game, index) => {
-				return setTimeout(() => {
-					setVisibleGames((prevState) => [...prevState, game]);
-				}, index * 100);
-			});
+			if (window.innerWidth >= animationBreakpoint) {
+				const timeouts = games.map((game, index) => {
+					return setTimeout(() => {
+						setVisibleGames((prevState) => [...prevState, game]);
+					}, index * 100);
+				});
 
-			return () => {
-				timeouts.forEach((timeout) => clearTimeout(timeout));
-			};
+				return () => {
+					timeouts.forEach((timeout) => clearTimeout(timeout));
+				};
+			} else {
+				// Disable animations on small devices
+				setVisibleGames(games);
+			}
 		} else {
 			setVisibleGames([]);
 		}
@@ -41,3 +47,4 @@ const GameTable: React.FC<GameTableProps> = ({ games, visible }) => {
 };
 
 export default GameTable;
+

@@ -15,7 +15,7 @@ interface SectionProps {
 const sections: SectionProps[] = [
 	{
 		id: "about-us",
-		title: "About Us",
+		title: "About",
 		bgColor: "bg-transparent",
 		blendColor: "bg-yellow-600",
 	},
